@@ -1,0 +1,6 @@
+framework module Pods_Data_graphTests {
+  umbrella header "Pods-Data graphTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

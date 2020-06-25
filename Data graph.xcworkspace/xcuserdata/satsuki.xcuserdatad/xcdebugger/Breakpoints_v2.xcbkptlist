@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3E7FA511-623F-4076-A5B5-B759D14B1293"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B810D8E-42D9-43A4-A19A-1D5A0CFDD686"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Data graph/AddDataViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "AddDataViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "0B810D8E-42D9-43A4-A19A-1D5A0CFDD686 - ad3dd7c38cdae2d8"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Data_graph.AddDataViewController.datalist.getter : Swift.Array&lt;Swift.Array&lt;Swift.Int&gt;&gt;"
+                  moduleName = "Data graph"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/satsuki/Desktop/Data%20graph/Data%20graph/AddDataViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  uuid = "0B810D8E-42D9-43A4-A19A-1D5A0CFDD686 - 78fb0412d31d624e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Data_graph.AddDataViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Data_graph.AddDataViewController"
+                  moduleName = "Data graph"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/satsuki/Desktop/Data%20graph/Data%20graph/AddDataViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "189">
+               </Location>
+               <Location
+                  uuid = "0B810D8E-42D9-43A4-A19A-1D5A0CFDD686 - a9f48e5884c3126d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Data_graph.AddDataViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Data_graph.AddDataViewController&gt;"
+                  moduleName = "Data graph"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/satsuki/Desktop/Data%20graph/Data%20graph/AddDataViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "126">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
