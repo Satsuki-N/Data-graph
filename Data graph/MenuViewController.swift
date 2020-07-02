@@ -14,8 +14,8 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func addmenu() {
-        
+    @IBAction func add() {
+        self.performSegue(withIdentifier: "addmenu", sender: nil)
     }
     
 
