@@ -12,12 +12,15 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.titleTextAttributes
+              = [NSAttributedString.Key.font: UIFont(name: "Times New Roman", size: 30)!]
     }
     
     @IBAction func add() {
         self.performSegue(withIdentifier: "addmenu", sender: nil)
     }
     
-
-  
+    @IBAction func test() {
+         self.performSegue(withIdentifier: "showgragh", sender: nil)
+}
 }

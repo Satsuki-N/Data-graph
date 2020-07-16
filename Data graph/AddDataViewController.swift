@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
     
     let datalist = [[Int](2000...2030),[Int](1...12),[Int](1...31)]
     
@@ -35,6 +36,7 @@ class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                
                self.datetextField.inputView = datePickerView
                self.datetextField.inputAccessoryView = toolbar
+        recordtextField.delegate = self
     }
     
      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -109,15 +111,42 @@ class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                if datePickerView.selectedRow(inComponent: 2) == -1{
                    inputDay = 0
                } else {
-               inputDay = datalist[2][datePickerView.selectedRow(inComponent: 2)]
+                   inputDay = datalist[2][datePickerView.selectedRow(inComponent: 2)]
                }
        
            }
+    
+    func textFieldShouldReturn(_ textField : UITextField) -> Bool {
+        textField.resignFirstResponder()
+        recordtextField.text = textField.text
+        return true
+    }
+    
+    
+    
     
 
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
            return CGRect(x: x, y: y, width: width, height: height)
     }
     
+    @IBAction func save() {
+        if recordtextField.text?.isEmpty == true{
+                   // アラート
+               }else{
+                   // オブジェクトの作成
+                   let record = Record() // Recordクラスのインスタンス
+                   let realm = try! Realm() // Realmデータベースのインスタンス
+                   
+                   record.y = Float(recordtextField.text!) // RecordクラスのタイトルプロパティにtitleField.text!を代入
+                   record.x = datetextField.text! //  RecordクラスのコンテンツプロパティにcontentView.textを代入
+                   
+                   try! realm.write{
+                       realm.add(record) // realmデータベースにRecordクラスの変更を送信
+                   }
+            print(Record())
+    }
+    
 
+}
 }

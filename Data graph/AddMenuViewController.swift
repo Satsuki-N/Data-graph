@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class AddMenuViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
 
@@ -66,7 +67,24 @@ class AddMenuViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
               return CGRect(x: x, y: y, width: width, height: height)
           }
+    
+    @IBAction func savecategory() {
+        
+        if categorytextField.text?.isEmpty == true{
+                   // アラート
+               }else{
+                   // オブジェクトの作成
+                   let category = Category() // ToDoクラスのインスタンス
+                   let realm = try! Realm() // Realmデータベースのインスタンス
+                   
+                   category.categorytitle = categorytextField.text! // ToDoクラスのタイトルプロパティにtitleField.text!を代入
+                  
+                   try! realm.write{
+                       realm.add(category) // realmデータベースにtodoクラスの変更を送信
+                   }
+    }
 
    
 
+}
 }

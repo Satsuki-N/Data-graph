@@ -15,6 +15,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func adddata(){
+         self.performSegue(withIdentifier: "adddata", sender: nil)
+    }
+
     
 
 }
