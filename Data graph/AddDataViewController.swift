@@ -144,7 +144,6 @@ class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                    try! realm.write{
                        realm.add(record) // realmデータベースにRecordクラスの変更を送信
                    }
-            print(Record())
     }
     
 

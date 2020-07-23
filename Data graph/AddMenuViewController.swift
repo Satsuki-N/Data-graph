@@ -9,82 +9,87 @@
 import UIKit
 import RealmSwift
 
-class AddMenuViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
-
-    let categorylist = ["時間","点数"]
-    var selectedrow : Int!
+class AddMenuViewController: UIViewController,UITextFieldDelegate {     //UIPickerViewDelegate,UIPickerViewDataSource
     
+    let categorylist = ["時間","点数"]
     @IBOutlet weak var categorytextField: UITextField!
     
+    var selectedrow : Int!
     var categoryPickerView:UIPickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryPickerView.delegate = self
-        categoryPickerView.dataSource = self
+        categorytextField.delegate = self
         
-        let toolbar = UIToolbar(frame: CGRectMake(0, 0, 0, 35))
-               let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(AddMenuViewController.done))
-               let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(AddMenuViewController.cancel))
-               toolbar.setItems([cancelItem, doneItem], animated: true)
-               
-               
-               self.categorytextField.inputView = categoryPickerView
-               self.categorytextField.inputAccessoryView = toolbar
+//        categoryPickerView.delegate = self
+//        categoryPickerView.dataSource = self
+//
+//        let toolbar = UIToolbar(frame: CGRectMake(0, 0, 0, 35))
+//        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(AddMenuViewController.done))
+//        let cancelItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(AddMenuViewController.cancel))
+//        toolbar.setItems([cancelItem, doneItem], animated: true)
+//
+//
+//        self.categorytextField.inputView = categoryPickerView
+//        self.categorytextField.inputAccessoryView = toolbar
     }
     
-      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return categorylist.count
-        }
-        
-        func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-            return pickerView.bounds.width * 1/4
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
-        {
-            let pickerLabel = UILabel()
-            pickerLabel.textAlignment = NSTextAlignment.left
-            pickerLabel.text = String(categorylist[row])
-            selectedrow = row
-            return pickerLabel
-        }
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return categorylist.count
+//    }
+//
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+//        return pickerView.bounds.width * 1/4
+//    }
+//
+//    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
+//    {
+//        let pickerLabel = UILabel()
+//        pickerLabel.textAlignment = NSTextAlignment.left
+//        pickerLabel.text = String(categorylist[row])
+//        selectedrow = row
+//        return pickerLabel
+//    }
+//
+//    @objc func cancel() {
+//        self.categorytextField.text = ""
+//        self.categorytextField.endEditing(true)
+//    }
+//
+//    @objc func done() {
+//        self.categorytextField.text = String(categorylist[selectedrow])
+//        self.categorytextField.endEditing(true)
+//    }
+    func textFieldShouldReturn(_ textField : UITextField) -> Bool {
+        textField.resignFirstResponder()
+        categorytextField.text = textField.text
+        return true
+    }
     
-    @objc func cancel() {
-               self.categorytextField.text = ""
-               self.categorytextField.endEditing(true)
-           }
     
-    @objc func done() {
-        self.categorytextField.text = String(categorylist[selectedrow])
-               self.categorytextField.endEditing(true)
-           }
+//    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+//        return CGRect(x: x, y: y, width: width, height: height)
+//    }
     
-    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-              return CGRect(x: x, y: y, width: width, height: height)
-          }
-    
-    @IBAction func savecategory() {
+    @IBAction func savecategory() {  //カテゴリーデータの保存
         
         if categorytextField.text?.isEmpty == true{
-                   // アラート
-               }else{
-                   // オブジェクトの作成
-                   let category = Category() // ToDoクラスのインスタンス
-                   let realm = try! Realm() // Realmデータベースのインスタンス
-                   
-                   category.categorytitle = categorytextField.text! // ToDoクラスのタイトルプロパティにtitleField.text!を代入
-                  
-                   try! realm.write{
-                       realm.add(category) // realmデータベースにtodoクラスの変更を送信
-                   }
+        }else{
+            // オブジェクトの作成
+            let category = Category() // ToDoクラスのインスタンス
+            let realm = try! Realm() // Realmデータベースのインスタンス
+            
+            category.categorytitle = categorytextField.text! // ToDoクラスのタイトルプロパティにtitleField.text!を代入
+            
+            try! realm.write{
+                realm.add(category) // realmデータベースにtodoクラスの変更を送信
+            }
+        }
+        
+        self .navigationController?.popViewController(animated: true)
     }
-
-   
-
-}
 }

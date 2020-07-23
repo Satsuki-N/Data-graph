@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001D6F4124C068C8003960B3 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001D6F4024C068C7003960B3 /* MenuViewController.swift */; };
 		001E360424923F8000BA1FF5 /* AddDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E360324923F8000BA1FF5 /* AddDataViewController.swift */; };
-		001E3606249248E300BA1FF5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E3605249248E300BA1FF5 /* MenuViewController.swift */; };
 		001E36082492490D00BA1FF5 /* AddMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E36072492490D00BA1FF5 /* AddMenuViewController.swift */; };
 		001E360A249B76D000BA1FF5 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E3609249B76CF00BA1FF5 /* Record.swift */; };
 		001E360C24A4A8EC00BA1FF5 /* pickerviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001E360B24A4A8EC00BA1FF5 /* pickerviewcontroller.swift */; };
@@ -44,8 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001D6F4024C068C7003960B3 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		001E360324923F8000BA1FF5 /* AddDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDataViewController.swift; sourceTree = "<group>"; };
-		001E3605249248E300BA1FF5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		001E36072492490D00BA1FF5 /* AddMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMenuViewController.swift; sourceTree = "<group>"; };
 		001E3609249B76CF00BA1FF5 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		001E360B24A4A8EC00BA1FF5 /* pickerviewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerviewcontroller.swift; sourceTree = "<group>"; };
@@ -129,12 +129,12 @@
 			isa = PBXGroup;
 			children = (
 				0020D1F024B7118000413089 /* Main.storyboard */,
+				001D6F4024C068C7003960B3 /* MenuViewController.swift */,
+				001E36072492490D00BA1FF5 /* AddMenuViewController.swift */,
+				001E360324923F8000BA1FF5 /* AddDataViewController.swift */,
+				00248DDF248BCE3B00BCE69C /* ViewController.swift */,
 				00248DDB248BCE3B00BCE69C /* AppDelegate.swift */,
 				00248DDD248BCE3B00BCE69C /* SceneDelegate.swift */,
-				001E3605249248E300BA1FF5 /* MenuViewController.swift */,
-				001E36072492490D00BA1FF5 /* AddMenuViewController.swift */,
-				00248DDF248BCE3B00BCE69C /* ViewController.swift */,
-				001E360324923F8000BA1FF5 /* AddDataViewController.swift */,
 				0020D1F324B7327800413089 /* NavigationController.swift */,
 				00248DE4248BCE3D00BCE69C /* Assets.xcassets */,
 				00248DE6248BCE3D00BCE69C /* LaunchScreen.storyboard */,
@@ -426,7 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				001E360424923F8000BA1FF5 /* AddDataViewController.swift in Sources */,
-				001E3606249248E300BA1FF5 /* MenuViewController.swift in Sources */,
+				001D6F4124C068C8003960B3 /* MenuViewController.swift in Sources */,
 				001E360C24A4A8EC00BA1FF5 /* pickerviewcontroller.swift in Sources */,
 				00248DE0248BCE3B00BCE69C /* ViewController.swift in Sources */,
 				0020D1F424B7327800413089 /* NavigationController.swift in Sources */,
