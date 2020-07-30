@@ -80,7 +80,7 @@ class AddMenuViewController: UIViewController,UITextFieldDelegate {     //UIPick
         if categorytextField.text?.isEmpty == true{
         }else{
             // オブジェクトの作成
-            let category = Category() // ToDoクラスのインスタンス
+            var category = Category() // ToDoクラスのインスタンス
             let realm = try! Realm() // Realmデータベースのインスタンス
             
             category.categorytitle = categorytextField.text! // ToDoクラスのタイトルプロパティにtitleField.text!を代入
@@ -88,6 +88,7 @@ class AddMenuViewController: UIViewController,UITextFieldDelegate {     //UIPick
             try! realm.write{
                 realm.add(category) // realmデータベースにtodoクラスの変更を送信
             }
+            print(category.categorytitle)
         }
         
         self .navigationController?.popViewController(animated: true)

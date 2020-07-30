@@ -12,7 +12,7 @@ import RealmSwift
 class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet var Menu: UITableView!
-    var categoryArray: Results<Category>!
+    var categoryItems: Results<Category>!
     let realm = try! Realm()
 
     override func viewDidLoad() {
@@ -20,8 +20,13 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         self.navigationController?.navigationBar.titleTextAttributes
               = [NSAttributedString.Key.font: UIFont(name: "Times New Roman", size: 30)!]
         Menu.dataSource = self
-        
-        categoryArray = realm.objects(Category.self)
+        Menu.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         categoryItems = realm.objects(Category.self)
+        Menu.reloadData()
+        print(categoryItems)
     }
     
     @IBAction func add() {
@@ -30,13 +35,14 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let cellItems = realm.objects(Category.self)
+        print("cellItemsは\(cellItems.count)")
         return cellItems.count
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")
-       let cellItems = realm.objects(Category.self)
-       let cellItem = cellItems[indexPath.row]
+       let cellItem = categoryItems[indexPath.row]
+        print("categorytitleは\(cellItem.categorytitle)")
         cell?.textLabel?.text = cellItem.categorytitle
         return cell!
     }
