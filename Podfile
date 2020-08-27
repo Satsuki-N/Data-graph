@@ -7,6 +7,7 @@ target 'Data graph' do
 
   # Pods for Data graph
 pod 'RealmSwift'
+pod 'Charts'
 
   target 'Data graphTests' do
     inherit! :search_paths

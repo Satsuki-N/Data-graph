@@ -10,11 +10,11 @@ import Foundation
 import RealmSwift
 
 class Record: Object{
-    dynamic var y: Float!
-    dynamic var x: String!
+    dynamic var resultnumber: Float!
+    @objc dynamic var datenumber: String!
 }
 
 class Category: Object{
-    dynamic var categorytitle: String!
+    @objc dynamic var categorytitle: String!
     let records = List<Record>()
 }

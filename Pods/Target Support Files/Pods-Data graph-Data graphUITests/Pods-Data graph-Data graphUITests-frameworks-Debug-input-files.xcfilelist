@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Data graph-Data graphUITests/Pods-Data graph-Data graphUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
 ${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework

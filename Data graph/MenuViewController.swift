@@ -34,9 +34,8 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
      func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let cellItems = realm.objects(Category.self)
-        print("cellItemsは\(cellItems.count)")
-        return cellItems.count
+        print("categoryItemsは\(categoryItems.count)")
+        return categoryItems.count
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

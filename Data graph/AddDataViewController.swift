@@ -138,14 +138,14 @@ class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                    let record = Record() // Recordクラスのインスタンス
                    let realm = try! Realm() // Realmデータベースのインスタンス
                    
-                   record.y = Float(recordtextField.text!) // RecordクラスのタイトルプロパティにtitleField.text!を代入
-                   record.x = datetextField.text! //  RecordクラスのコンテンツプロパティにcontentView.textを代入
+                   record.resultnumber = Float(recordtextField.text!) // RecordクラスのタイトルプロパティにtitleField.text!を代入
+                   record.datenumber = datetextField.text! //  RecordクラスのコンテンツプロパティにcontentView.textを代入
                    
                    try! realm.write{
                        realm.add(record) // realmデータベースにRecordクラスの変更を送信
                    }
     }
-    
+     self .navigationController?.popViewController(animated: true)
 
 }
 }
