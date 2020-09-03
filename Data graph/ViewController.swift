@@ -13,32 +13,39 @@ import Charts
 class ViewController: UIViewController {
     
        @IBOutlet weak var chartView: LineChartView!
-       
+//    var resultnumbers: [Float] = []
+//    var datenumbers: [String] = []
+      var resultnumbers: Results<Record>!
+      var datenumbers: Results<Record>!
+    var categorynames: Results<Category>!
+       let realm = try! Realm()
     
           override func viewDidLoad() {
             super.viewDidLoad()
-            let sales = [3205.0, 3120.0, 3424.0, 3544.0, 3312.0, 3612.0, 3594.0, 3648.0, 3845.0, 3585.0, 3917.0, 4014.0]
-            setChart(values: sales)
+            resultnumbers = realm.objects(Record.self)
+            datenumbers = realm.objects(Record.self)
+            
+            setChart(valuesX: datenumbers, valuesY: resultnumbers)//Setchartにデータを代入　valuesにy軸のデータが入る
       }
-    
-    @IBAction func adddata() {
-        self.performSegue(withIdentifier: "adddata", sender: nil)
-    }
        
-          func setChart(values: [Double]) {
-              var entry = [ChartDataEntry]()
+    func setChart(valuesX: [String] ,valuesY: [Double] ) { //引数にvaluesという名前のdoublu型の配列を設定する
+              var entry = [ChartDataEntry]() //グラフ作成
+              for i in 0..<valuesX.count {
+                  entry.append(ChartDataEntry(x: valuesX[i], y: valuesY[i] )) //プロットした点に数値を表示
+              }  //valuesXのi番目の数をxに代入する、valuesYのi番目の数をyに代入する
        
-              for i in 0..<values.count {
-                  entry.append(ChartDataEntry(x: Double(i), y: values[i] ))
-              }
-       
-            let dataSet = LineChartDataSet(entries: entry, label: "2018年売上推移（百万）")
-              chartView.data = LineChartData(dataSet: dataSet)
+            let dataSet = LineChartDataSet(entries: entry, label: "a")
+              chartView.data = LineChartData(dataSet: dataSet) // グラフに点をプロット
           }
        
           override func didReceiveMemoryWarning() {
-              super.didReceiveMemoryWarning()
+              super.didReceiveMemoryWarning() //グラフの形を形成
               // Dispose of any resources that can be recreated.
           }
+    
+    @IBAction func adddata() {
+        self.performSegue(withIdentifier: "adddata", sender: nil) //グラフに表示するデータの追加
+    }
+
     
 }

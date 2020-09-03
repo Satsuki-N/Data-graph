@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class Record: Object{
-    dynamic var resultnumber: Float!
+    dynamic var resultnumber: Double!
     @objc dynamic var datenumber: String!
 }
 
