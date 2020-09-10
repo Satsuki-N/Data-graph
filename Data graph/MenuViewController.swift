@@ -14,7 +14,9 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet var Menu: UITableView!
     var categoryItems: Results<Category>!
     let realm = try! Realm()
-
+    var indexNumber: Int!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.titleTextAttributes
@@ -43,8 +45,18 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
        let cellItem = categoryItems[indexPath.row]
         print("categorytitleは\(cellItem.categorytitle)")
         cell?.textLabel?.text = cellItem.categorytitle
+        indexNumber = indexPath.row
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showgragh", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+           if segue.identifier == "showgraph" {
+               let nextVC = segue.destination as! ViewController
+               nextVC.categoryNumber = indexNumber
+           }
     
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 //           if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -56,3 +68,4 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 }
     
 
+}

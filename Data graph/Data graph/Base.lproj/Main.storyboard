@@ -51,6 +51,28 @@
             </objects>
             <point key="canvasLocation" x="-1520.289855072464" y="122.54464285714285"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bSl-T8-Yuy">
+            <objects>
+                <viewController id="ZR8-fN-tMB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jhn-9N-FZb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hpd-Wr-5F9" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="92" width="365" height="422"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="m0R-fD-a3R"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N2E-xl-JUN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1520" y="2677"/>
+        </scene>
         <!--Add Menu View Controller-->
         <scene sceneID="2TV-2r-TBa">
             <objects>
@@ -100,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0e-oA-C8m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-649.27536231884062" y="122.54464285714285"/>
+            <point key="canvasLocation" x="-758" y="853"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -138,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="182.60869565217394" y="122.54464285714285"/>
+            <point key="canvasLocation" x="-616" y="123"/>
         </scene>
         <!--Add Data View Controller-->
         <scene sceneID="vRI-fm-IUa">
@@ -196,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76O-nc-uZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="123"/>
+            <point key="canvasLocation" x="320" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7gS-Lb-1Zc">

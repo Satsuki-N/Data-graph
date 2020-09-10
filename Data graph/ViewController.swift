@@ -15,23 +15,29 @@ class ViewController: UIViewController {
        @IBOutlet weak var chartView: LineChartView!
 //    var resultnumbers: [Float] = []
 //    var datenumbers: [String] = []
-      var resultnumbers: Results<Record>!
-      var datenumbers: Results<Record>!
-    var categorynames: Results<Category>!
+      var resultnumbers: List<Record>!
+     // var datenumbers: Results<Record>!
+    var categoryItemes: Results<Category>!
        let realm = try! Realm()
+    var categoryNumber: Int!
     
           override func viewDidLoad() {
             super.viewDidLoad()
-            resultnumbers = realm.objects(Record.self)
-            datenumbers = realm.objects(Record.self)
+//            resultnumbers = realm.objects(Record.self)
+//            datenumbers = realm.objects(Record.self)
+            categoryItemes = realm.objects(Category.self)
+            resultnumbers = categoryItemes[categoryNumber].records
+            print(resultnumbers[0].resultnumber)
             
-            setChart(valuesX: datenumbers, valuesY: resultnumbers)//Setchartにデータを代入　valuesにy軸のデータが入る
+            
+            let sales:[Double] = [1,2,3]
+            setChart(values: sales)//Setchartにデータを代入　valuesにy軸のデータが入る
       }
-       
-    func setChart(valuesX: [String] ,valuesY: [Double] ) { //引数にvaluesという名前のdoublu型の配列を設定する
+      
+    func setChart(values: [Double] ) { //引数にvaluesという名前のdoublu型の配列を設定する
               var entry = [ChartDataEntry]() //グラフ作成
-              for i in 0..<valuesX.count {
-                  entry.append(ChartDataEntry(x: valuesX[i], y: valuesY[i] )) //プロットした点に数値を表示
+              for i in 0..<values.count {
+                  entry.append(ChartDataEntry(x: Double(i), y: values[i] )) //プロットした点に数値を表示
               }  //valuesXのi番目の数をxに代入する、valuesYのi番目の数をyに代入する
        
             let dataSet = LineChartDataSet(entries: entry, label: "a")

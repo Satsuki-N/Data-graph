@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class Record: Object{
-    dynamic var resultnumber: Double!
+    @objc dynamic var resultnumber: Double = 0.00
     @objc dynamic var datenumber: String!
 }
 
