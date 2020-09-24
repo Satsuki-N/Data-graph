@@ -45,11 +45,11 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
        let cellItem = categoryItems[indexPath.row]
         print("categorytitleは\(cellItem.categorytitle)")
         cell?.textLabel?.text = cellItem.categorytitle
-        indexNumber = indexPath.row
         return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+          indexNumber = indexPath.row
         performSegue(withIdentifier: "showgragh", sender: nil)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

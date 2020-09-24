@@ -20,7 +20,9 @@ class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
     var inputDay: Int = 0   //入力した日付　（日）
     var datePickerView: UIPickerView = UIPickerView()
     
-
+    var category: Category!
+    var record:  Record!
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,14 +137,12 @@ class AddDataViewController: UIViewController,UIPickerViewDelegate,UIPickerViewD
                    // アラート
                }else{
                    // オブジェクトの作成
-                   let record = Record() // Recordクラスのインスタンス
-                   let realm = try! Realm() // Realmデータベースのインスタンス
-                   
+                   record = Record() // Recordクラスのインスタンス
                    record.resultnumber = Double(recordtextField.text!)! // RecordクラスのタイトルプロパティにtitleField.text!を代入
                    record.datenumber = datetextField.text! //  RecordクラスのコンテンツプロパティにcontentView.textを代入
                    
                    try! realm.write{
-                       realm.add(record) // realmデータベースにRecordクラスの変更を送信
+                    category.records.append(record)
                    }
     }
      self .navigationController?.popViewController(animated: true)
