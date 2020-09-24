@@ -52,12 +52,9 @@ class ViewController: UIViewController {
             entry.append(ChartDataEntry(x: Double(1), y: values[0] )) //プロットした点に数値を表示
         }else{
             for i in 0..<values.count - 1 {
-                entry.append(ChartDataEntry(x: Double(i), y: values[i] )) //プロットした点に数値を表示
+                entry.append(ChartDataEntry(x: Double(i+1), y: values[i] )) //プロットした点に数値を表示
             }
         }
-        for i in 0..<values.count {
-            entry.append(ChartDataEntry(x: Double(i), y: values[i] )) //プロットした点に数値を表示
-        }     //valuesXのi番目の数をxに代入する、valuesYのi番目の数をyに代入する
         
         let dataSet = LineChartDataSet(entries: entry, label: "a")
         chartView.data = LineChartData(dataSet: dataSet) // グラフに点をプロット
