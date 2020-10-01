@@ -14,7 +14,8 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet var Menu: UITableView!
     var categoryItems: Results<Category>!
     let realm = try! Realm()
-    var indexNumber: Int!
+    var indexNumber: Int = 0
+    
     
     
     override func viewDidLoad() {
@@ -52,8 +53,27 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
           indexNumber = indexPath.row
         performSegue(withIdentifier: "showgragh", sender: nil)
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
+       {
+           return true
+       }
+
+       //スワイプしたセルを削除　※arrayNameは変数名に変更してください
+       func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+           if editingStyle == UITableViewCell.EditingStyle.delete {
+            var category = Category()
+            category = categoryItems[indexPath.row]
+            try! realm.write{
+                realm.delete(category)
+            }
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+           }
+        
+       }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           if segue.identifier == "showgraph" {
+           if segue.identifier == "showgragh" {
                let nextVC = segue.destination as! ViewController
                nextVC.categoryNumber = indexNumber
            }
